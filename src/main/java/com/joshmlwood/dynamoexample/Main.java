@@ -15,14 +15,14 @@ public class Main {
         AmazonDynamoDB amazonDynamoDB = new AmazonDynamoDBClient(new AWSCredentialsProviderChain(new ProfileCredentialsProvider()));
         LowLevelApi lowLevelApi = new LowLevelApi(objectMapper, amazonDynamoDB);
 
-            lowLevelApi.find("TestTable", "hash", "My data");
-            lowLevelApi.save("TestTable", "one", "one-range", new MyPojo(1, "yadda yadda"));
-            tryPrint(lowLevelApi.getByKeys("TestTable", "one", "one-range"));
-            tryPrint(lowLevelApi.find("TestTable", "one", "yadda"));
-            tryPrint(lowLevelApi.getAll("TestTable"));
+        lowLevelApi.find("TestTable", "hash", "My data");
+        lowLevelApi.save("TestTable", "one", "one-range", new MyPojo(1, "yadda yadda"));
+        tryPrint(lowLevelApi.getByKeys("TestTable", "one", "one-range"));
+        tryPrint(lowLevelApi.find("TestTable", "one", "yadda"));
+        tryPrint(lowLevelApi.getAll("TestTable"));
 
-            lowLevelApi.delete("TestTable", "one", "one-range");
-            tryPrint(lowLevelApi.getAll("TestTable"));
+        lowLevelApi.delete("TestTable", "one", "one-range");
+        tryPrint(lowLevelApi.getAll("TestTable"));
     }
 
     private static void tryPrint(Object o) {
